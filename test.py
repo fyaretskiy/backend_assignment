@@ -54,7 +54,9 @@ class TestAuctionHouse(unittest.TestCase):
         """
         f13 = Item("f13", 'book', 20)
         # Test the error if another a duplicate is submitted
-        self.assertRaises(NameError, Item, 'f13', 'book', 20)
+        self.assertRaises(NameError, Item, 'f13', 'book', 40)
+        # Make sure original item instance was not changed
+        self.assertTrue(f13.price == 20)
 
 if __name__ == "__main__":
     unittest.main()
